@@ -1,9 +1,4 @@
-const { Kafka, Kafka } = require('kafkajs')
-
-const Kafka = new Kafka({
-    clientId: 'my-app',
-    brokers: ['http://192.168.1.16:9092'],
-});
+const { Kafka } = require("./client");
 
 async function init(){
     const admin = Kafka.admin();
@@ -21,4 +16,9 @@ async function init(){
         ],
     }),
     console.log("Topic Created Success [rider-updates]")
+
+    console.log("Disconnecting Admin..");
+    await admin.disconnect();
 } 
+
+init();
