@@ -27,8 +27,9 @@ async function init(){
                 },
             ],
         });
-    }).on('close', async() =>{})
+    }).on('close', async() =>{
     await producer.disconnect();
+    })
 }
 
 init();
